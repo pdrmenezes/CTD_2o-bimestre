@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+:root {
+    --clr-black: #232323;
+    --clr-white: #efefef;
+    --clr-blue: #56ABEF;
+    --clr-purple: #595AD3;
+    --clr-dark-yellow: #cc8a29;
+    --clr-light-yellow: #eaa22d;
+    --ff-headings: 'Ubuntu', sans-serif;
+    --ff-body: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 90%;
+    overflow: hidden;
+    padding: 0 3rem;
+    margin: 0 10px;
+}
+
+body {
+    background: var(--clr-white);
+}
+
+.opcao {
+    float: left;
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    position: fixed;
+}
+
+.tarefa {
+    list-style: none;
+}
+
+header nav {
+    line-height: 100px;
+    display: inline;
+}
+
+header nav a:hover {
+    text-decoration-line: underline;
+    text-decoration-style: solid
+}
+
+main {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+/* Estilização dos botões de adicionar tarefas, incluindo animação durante hover e remoção do outline */
+
+button {
+    background-color: transparent;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn svg {
+    height: 2rem;
+    width: 2rem;
+}
+
+
+/* Estilo da lista de tarefas */
+
+.tarefa {
+    display: flex;
+    align-items: center;
+    font-family: var(--ff-body);
+    justify-content: center;
+    margin: 1.5rem 1.8rem;
+    font-size: 1.25rem;
+}
+
+.tarefa .btn {
+    margin-bottom: .5rem;
+}
+
+#li-adicionar:hover {
+    cursor: pointer;
+}
+
+#li-adicionar:hover .btn {
+    transform: scale(1.1);
+}
+
+#li-adicionar .btn {
+    margin-bottom: 2rem;
+}
+
+.linha {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid rgba(35, 35, 35, 0.4);
+    padding: 0 1rem;
+    position: relative;
+}
+
+.vazio {
+    height: 1.75rem;
+}
+
+.titulo-todo {
+    font-size: 1.5rem;
+    padding-bottom: 1.125rem;
+}
+
+.tarefa:hover .fim-da-linha {
+    opacity: 1;
+}
+
+.fim-da-linha {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    display: flex;
+    align-items: center;
+    float: right;
+    transition: opacity ease-out 0.5s;
+}
+
+.datas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.datas>span {
+    display: flex;
+    align-items: center;
+    font-family: var(--ff-headings);
+    font-weight: 700;
+}
+
+.dataCriacao-todo {
+    margin-bottom: 8px;
+    color: var(--clr-blue);
+}
+
+.dataCriacao-todo svg {
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-right: 8px;
+}
+
+.dataCriacao-todo path {
+    fill: var(--clr-blue);
+}
+
+.prazo-todo {
+    color: var(--clr-dark-yellow);
+}
+
+.escuro .prazo-todo {
+    color: var(--clr-light-yellow);
+}
+
+.prazo-todo svg {
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-right: 8px;
+}
+
+.prazo-todo path {
+    fill: var(--clr-dark-yellow);
+}
+
+.excluir-todo.btn {
+    margin-bottom: 1rem;
+}
+
+.excluir-todo {
+    height: min-content;
+    padding: 2px;
+}
+
+.excluir-todo svg {
+    height: 1.5rem;
+    margin-bottom: -1rem;
+}
+
+.excluir-todo path {
+    fill: var(--clr-black);
+}
+
+
+/* Lista de tarefas concluídas */
+
+.concluida .linha {
+    border-bottom: 1px solid var(--clr-blue);
+    color: var(--clr-blue);
+}
+
+.concluida .excluir-todo path {
+    fill: var(--clr-blue);
+}
+
+.concluida .titulo-todo {
+    text-decoration: line-through;
+}
+
+
+/* Estilo do modal e formulário */
+
+.modal-content {
+    background-color: var(--clr-white);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(35, 35, 35, 0.3) !important;
+}
+
+.modal-title {
+    font-weight: 700;
+}
+
+#adicionar-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formfield {
+    position: relative;
+    width: 25%;
+    margin: 0 8px;
+}
+
+.formfield:nth-child(3) {
+    width: 100%;
+}
+
+.formfield label {
+    display: block;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: -2px;
+}
+
+label[for=dataCriacao] {
+    color: var(--clr-blue);
+}
+
+label[for=prazo] {
+    color: var(--clr-dark-yellow);
+}
+
+.formfield input {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid rgba(35, 35, 35, 0.3);
+    border-radius: 4px 4px 0 0;
+}
+
+input[name=dataCriacao] {
+    color: var(--clr-blue);
+}
+
+input[name=prazo] {
+    color: var(--clr-dark-yellow);
+}
+
+#adicionar-form button {
+    margin-bottom: -2rem;
+}
+
+
+/*Modo claro*/
+
+.titulo {
+    margin: 30px;
+    font-family: var(--ff-headings);
+    color: var(--clr-blue);
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.clique-modo-escuro {
+    position: fixed;
+    right: 30px;
+    text-decoration: none;
+    color: var(--clr-black);
+}
+
+.clique-modo-escuro:hover {
+    color: var(--clr-black);
+}
+
+.nav-modo-claro {
+    text-decoration: none;
+    color: var(--clr-black);
+}
+
+.nav-modo-claro:hover {
+    color: var(--clr-black);
+}
+
+
+/* Modo Escuro */
+
+.escuro {
+    background-color: var(--clr-black);
+}
+
+.escuro span {
+    color: var(--clr-white);
+}
+
+.escuro .titulo {
+    color: var(--clr-purple);
+}
+
+.escuro .nav-modo-claro {
+    color: var(--clr-white);
+}
+
+.escuro .nav-modo-claro:hover {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+}
+
+.escuro .clique-modo-escuro {
+    color: var(--clr-white);
+}
+
+.escuro .tarefa:not(.concluida) .btn path {
+    stroke: var(--clr-white);
+}
+
+.escuro #li-adicionar .btn path {
+    fill: var(--clr-white);
+}
+
+.escuro .linha {
+    border-bottom: 1px solid var(--clr-white);
+}
+
+.escuro .dataCriacao-todo path {
+    fill: var(--clr-purple);
+}
+
+.escuro .prazo-todo path {
+    fill: var(--clr-light-yellow);
+}
+
+.escuro .excluir-todo path {
+    fill: var(--clr-white);
+}
+
+.escuro .concluida .excluir-todo path {
+    fill: var(--clr-purple);
+}
+
+.escuro .dataCriacao-todo span {
+    color: var(--clr-purple);
+}
+
+.escuro .prazo-todo span {
+    color: var(--clr-light-yellow);
+}
+
+.escuro .preenchida path {
+    stroke: var(--clr-purple);
+}
+
+.escuro .preenchida path:nth-last-child(1) {
+    fill: var(--clr-purple);
+}
+
+.escuro .concluida .linha {
+    border-bottom: 1px solid var(--clr-purple);
+    color: var(--clr-purple);
+}
+
+.escuro .concluida .titulo-todo {
+    color: var(--clr-purple);
+}
+
+.escuro .modal-content {
+    color: var(--clr-white);
+    background-color: var(--clr-black);
+    font-family: 'Ubunto', sans-serif;
+}
+
+.escuro .modal-header {
+    border-bottom: 1px solid rgba(239, 239, 239, 0.3) !important;
+}
+
+.escuro label[for=dataCriacao] {
+    color: var(--clr-purple);
+}
+
+.escuro label[for=prazo] {
+    color: var(--clr-light-yellow);
+}
+
+.escuro .formfield input {
+    background-color: rgba(239, 239, 239, 0.1);
+    color: var(--clr-white);
+    border-bottom: 1px solid rgba(239, 239, 239, 0.3);
+}
+
+.escuro .formfield input::-webkit-calendar-picker-indicator {
+    filter: invert(80%) sepia(26%) saturate(3941%) hue-rotate(342deg) brightness(99%) contrast(84%);
+}
+
+.escuro input[name=dataCriacao] {
+    color: var(--clr-purple);
+}
+
+.escuro input[name=prazo] {
+    color: var(--clr-light-yellow);
+}
+
+.escuro #adicionar-form button path {
+    fill: var(--clr-white);
+}
+
+
+/* PÁGINA API */
+
+#gerarCard {
+    font-family: var(--ff-body);
+    margin-bottom: 1rem;
+    align-items: center;
+    border-radius: 50px;
+    border-color: var(--clr-black);
+}
+
+.escuro #gerarCard {
+    color: var(--clr-white);
+    border-color: var(--clr-white);
+}
+
+
+/* Responsividade */
+
+@media(max-width: 1024px) {
+    h1.titulo {
+        margin-top: 83px;
+    }
+}
+
+@media(max-width: 768px) {
+    h1.titulo {
+        font-size: 1.75rem;
+        margin-top: 83px;
+    }
+    nav.opcao {
+        font-size: .75rem;
+    }
+    #gerarCard {
+        font-size: .8rem;
+    }
+    .titulo-todo {
+        font-size: 1.15rem;
+    }
+    .btn svg {
+        width: 1rem;
+        height: 1rem;
+    }
+    .formfield label {
+        font-size: 1rem;
+    }
+    .formfield input {
+        padding: 0.2rem;
+    }
+    .fim-da-linha {
+        font-size: .8rem;
+        transform: scale(80%);
+    }
+}

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.5 on darwin)" generated="20211202 10:34:22.696" rpa="false" schemaversion="2">
+<suite id="s1" name="Saucedemo" source="/Users/pedro/Documents/VSCode/CTD/2º bimestre/CTD_testing1/robot framework 1/sauce demo/saucedemo.robot">
+<test id="s1-t1" name="Processo de compra na loja Sauce Demo">
+<kw name="Acessar o site da Sauce Demo" library="saucedemo">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${SITE}</arg>
+<arg>${NAVEGADOR}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211202 10:34:22.998" level="INFO">Opening browser 'chrome' to base url 'https://saucedemo.com'.</msg>
+<status status="PASS" starttime="20211202 10:34:22.997" endtime="20211202 10:34:27.546"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211202 10:34:27.547" endtime="20211202 10:34:27.751"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.75</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211202 10:34:27.751" endtime="20211202 10:34:27.752"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:22.997" endtime="20211202 10:34:27.752"/>
+</kw>
+<kw name="Fazer login" library="saucedemo">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_USUARIO}</arg>
+<arg>${USUARIO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:27.763" level="INFO">Typing text 'standard_user' into text field 'css=#user-name'.</msg>
+<status status="PASS" starttime="20211202 10:34:27.760" endtime="20211202 10:34:30.445"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_SENHA}</arg>
+<arg>${SENHA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:30.447" level="INFO">Typing text 'secret_sauce' into text field 'css=#password'.</msg>
+<status status="PASS" starttime="20211202 10:34:30.446" endtime="20211202 10:34:32.942"/>
+</kw>
+<kw name="Wait and Click" library="saucedemo">
+<arg>${BOTAO_LOGIN}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:32.944" endtime="20211202 10:34:34.482"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:34.484" level="INFO">Clicking element 'css=#login-button'.</msg>
+<status status="PASS" starttime="20211202 10:34:34.483" endtime="20211202 10:34:36.231"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:32.942" endtime="20211202 10:34:36.232"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:27.759" endtime="20211202 10:34:36.232"/>
+</kw>
+<kw name="Selecionar produto e colocar no carrinho" library="saucedemo">
+<kw name="Wait and Click" library="saucedemo">
+<arg>${PRODUTO}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:36.235" endtime="20211202 10:34:37.776"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:37.777" level="INFO">Clicking element 'css=#item_4_title_link &gt; div'.</msg>
+<status status="PASS" starttime="20211202 10:34:37.776" endtime="20211202 10:34:39.396"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:36.234" endtime="20211202 10:34:39.396"/>
+</kw>
+<kw name="Wait and Click" library="saucedemo">
+<arg>${ADICIONAR}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:39.397" endtime="20211202 10:34:40.926"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:40.927" level="INFO">Clicking element 'css=#add-to-cart-sauce-labs-backpack'.</msg>
+<status status="PASS" starttime="20211202 10:34:40.926" endtime="20211202 10:34:42.482"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:39.397" endtime="20211202 10:34:42.483"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:36.233" endtime="20211202 10:34:42.484"/>
+</kw>
+<kw name="Abrir o carrinho e clicar em checkout" library="saucedemo">
+<kw name="Wait and Click" library="saucedemo">
+<arg>${CARRINHO}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:42.486" endtime="20211202 10:34:44.016"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:44.017" level="INFO">Clicking element 'css=#shopping_cart_container &gt; a'.</msg>
+<status status="PASS" starttime="20211202 10:34:44.016" endtime="20211202 10:34:45.589"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:42.485" endtime="20211202 10:34:45.590"/>
+</kw>
+<kw name="Wait and Click" library="saucedemo">
+<arg>${CHECKOUT}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:45.591" endtime="20211202 10:34:47.123"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:47.126" level="INFO">Clicking element 'css=#checkout'.</msg>
+<status status="PASS" starttime="20211202 10:34:47.124" endtime="20211202 10:34:48.703"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:45.590" endtime="20211202 10:34:48.703"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:42.484" endtime="20211202 10:34:48.704"/>
+</kw>
+<kw name="Preencher os dados de entrega e clicar em Continue" library="saucedemo">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_NOME}</arg>
+<arg>${NOME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:48.705" level="INFO">Typing text 'Tiago' into text field 'css=#first-name'.</msg>
+<status status="PASS" starttime="20211202 10:34:48.704" endtime="20211202 10:34:51.103"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_SOBRENOME}</arg>
+<arg>${SOBRENOME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:51.104" level="INFO">Typing text 'Gomes' into text field 'css=#last-name'.</msg>
+<status status="PASS" starttime="20211202 10:34:51.103" endtime="20211202 10:34:53.472"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_CEP}</arg>
+<arg>${CEP}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:53.473" level="INFO">Typing text '000000' into text field 'css=#postal-code'.</msg>
+<status status="PASS" starttime="20211202 10:34:53.472" endtime="20211202 10:34:55.843"/>
+</kw>
+<kw name="Wait and Click" library="saucedemo">
+<arg>${BOTAO_CONTINUE}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:55.845" endtime="20211202 10:34:57.373"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:34:57.374" level="INFO">Clicking element 'css=#continue'.</msg>
+<status status="PASS" starttime="20211202 10:34:57.373" endtime="20211202 10:34:58.955"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:55.844" endtime="20211202 10:34:58.956"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:48.704" endtime="20211202 10:34:58.956"/>
+</kw>
+<kw name="Finalizar a compra" library="saucedemo">
+<kw name="Wait and Click" library="saucedemo">
+<arg>${BOTAO_FINISH}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211202 10:34:58.957" endtime="20211202 10:35:00.489"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELEMENTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211202 10:35:00.490" level="INFO">Clicking element 'css=#finish'.</msg>
+<status status="PASS" starttime="20211202 10:35:00.489" endtime="20211202 10:35:02.094"/>
+</kw>
+<status status="PASS" starttime="20211202 10:34:58.957" endtime="20211202 10:35:02.095"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${CONFIRMACAO}</arg>
+<arg>${MENSAGEMN}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20211202 10:35:02.099" level="FAIL">Variable '${MENSAGEMN}' not found. Did you mean:
+    ${MENSAGEM}</msg>
+<status status="FAIL" starttime="20211202 10:35:02.095" endtime="20211202 10:35:02.099"/>
+</kw>
+<status status="FAIL" starttime="20211202 10:34:58.956" endtime="20211202 10:35:02.100"/>
+</kw>
+<status status="FAIL" starttime="20211202 10:34:22.996" endtime="20211202 10:35:02.100">Variable '${MENSAGEMN}' not found. Did you mean:
+    ${MENSAGEM}</status>
+</test>
+<status status="FAIL" starttime="20211202 10:34:22.697" endtime="20211202 10:35:02.104"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Saucedemo">Saucedemo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
